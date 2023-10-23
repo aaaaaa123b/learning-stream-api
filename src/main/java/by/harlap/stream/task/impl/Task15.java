@@ -3,16 +3,21 @@ package by.harlap.stream.task.impl;
 import by.harlap.stream.task.Task;
 import by.harlap.stream.util.DataProvider;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.OptionalDouble;
 
 public class Task15 implements Task {
 
+    private final List<String> strings;
+
+    public Task15(List<String> strings) {
+        this.strings = strings;
+    }
 
     @Override
     public void run() {
         System.out.println("\n15.Получите список строк, преобразуйте их в числа, и посчитайте среднее значение (не забудьте отфильтровать не валидные строки)\n");
-        List<String> strings = DataProvider.createStrings();
 
         OptionalDouble average = strings.stream()
                 .filter(Task15::isValidNumber)

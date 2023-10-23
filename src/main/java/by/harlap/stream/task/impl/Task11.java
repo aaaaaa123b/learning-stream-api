@@ -12,9 +12,14 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Task11 implements Task {
+    private final List<Person> persons;
+
+    public Task11(List<Person> persons) {
+        this.persons = persons;
+    }
+
     @Override
     public void run() {
-        List<Person> persons = DataProvider.createPersons();
         System.out.println("\n11.Получние список Person, получите их телефоны, сгруппируйте по оператору и рузальтатом группировки должны быть только номера телефонов.\n");
         Map<Operator, List<String>> filtredPersons11 = persons
                 .stream()

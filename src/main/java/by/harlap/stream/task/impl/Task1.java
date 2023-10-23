@@ -19,7 +19,7 @@ public class Task1 implements Task {
 
     @Override
     public void run() {
-        System.out.printf("1.Получите список Person и отфильтруйте только те, у которых age > %d и выведите в консоль.\n", minimalAgeExclusive);
+        System.out.printf("\n1.Получите список Person и отфильтруйте только те, у которых age > %d и выведите в консоль.\n\n", minimalAgeExclusive);
 
         persons.stream()
                 .filter(person -> person.age() > minimalAgeExclusive)

@@ -1,5 +1,6 @@
 package by.harlap.stream.task.impl;
 
+import by.harlap.stream.model.Person;
 import by.harlap.stream.task.Task;
 
 import java.io.*;
@@ -9,16 +10,21 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Task13 implements Task {
+    private final String fileName;
 
+    public Task13(String fileName) {
+        this.fileName = fileName;
+    }
     @Override
     public void run() {
         System.out.println("\n13.Прочтите содержимое текстового файла и сделайте из него частотный словарик. (слово -> и какое кол-во раз это слово встречается в нём)\n");
-        URL res = Task13.class.getClassLoader().getResource("test.txt");
+        URL res = Task13.class.getClassLoader().getResource(fileName);
         File file = null;
         try {
             if (res != null) {

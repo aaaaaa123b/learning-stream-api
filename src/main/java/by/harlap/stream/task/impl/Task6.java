@@ -10,11 +10,16 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Task6 implements Task {
+
+    private final List<Person> persons;
+
+    public Task6(List<Person> persons) {
+        this.persons = persons;
+    }
+
     @Override
     public void run() {
-        List<Person> persons = DataProvider.createPersons();
-
-        System.out.println("\n6.Получите список Person и сгруппируйте их по полу.");
+        System.out.println("\n6.Получите список Person и сгруппируйте их по полу.\n");
         Map<Gender, List<Person>> result = persons.stream()
                 .collect(Collectors.groupingBy(Person::gender));
 

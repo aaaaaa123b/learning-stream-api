@@ -8,9 +8,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Task4 implements Task {
+
+    private final List<Person> persons;
+
+    public Task4(List<Person> persons) {
+        this.persons = persons;
+    }
     @Override
     public void run() {
-        List<Person> persons = DataProvider.createPersons();
 
         System.out.println("\n4.Получите список Person, преобразуйте в name и затем преобразуйте в строку, что бы имена были через запятую.\n");
         String result = persons

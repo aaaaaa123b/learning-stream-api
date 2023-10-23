@@ -10,9 +10,14 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Task12 implements Task {
+    private final List<Person> persons;
+
+    public Task12(List<Person> persons) {
+        this.persons = persons;
+    }
+
     @Override
     public void run() {
-        List<Person> persons = DataProvider.createPersons();
         System.out.println("\n12.Получние список Person, сгруппируйте их по полу и результатом группировки должно быть их кол-во.\n");
         Map<Gender, Long> filtredPersons12 = persons.stream()
                 .collect(Collectors.groupingBy(Person::gender, Collectors.counting()));

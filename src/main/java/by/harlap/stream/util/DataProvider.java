@@ -13,12 +13,15 @@ public class DataProvider {
     public static List<Person> createPersons() {
         return Arrays.asList(
                 new Person("Ann", 47, 65.5, Gender.FEMALE, List.of(new Phone(Operator.A1, "1111"), new Phone(Operator.A1, "3452"), new Phone(Operator.MTS, "3451"))),
-                new Person("Bob", 24, 70.2, Gender.MALE, List.of(new Phone(Operator.MTS, "2222"),new Phone(Operator.A1, "9452"))),
+                new Person("Bob", 24, 70.2, Gender.MALE, List.of(new Phone(Operator.MTS, "2222"), new Phone(Operator.A1, "9452"))),
                 new Person("Peter", 25, 80.0, Gender.MALE, List.of(new Phone(Operator.LIFE, "3333"))),
-                new Person("Jane", 35, 81.3, Gender.FEMALE, List.of(new Phone(Operator.LIFE, "3933"),new Phone(Operator.MTS, "9952"))),
-                new Person("Anthony", 22, 72.0, Gender.MALE, List.of(new Phone(Operator.MTS, "5578"),new Phone(Operator.A1, "1056"))),
-                new Person("Jacob", 89, 52.6, Gender.MALE, List.of(new Phone(Operator.LIFE, "5238"),new Phone(Operator.LIFE, "1020"))),
-                new Person("Liza", 39, 32.6, Gender.FEMALE, List.of(new Phone(Operator.LIFE, "7281")))
+                new Person("Jane", 35, 81.3, Gender.FEMALE, List.of(new Phone(Operator.LIFE, "3933"), new Phone(Operator.MTS, "9952"))),
+                new Person("Anthony", 22, 72.0, Gender.MALE, List.of(new Phone(Operator.MTS, "5578"), new Phone(Operator.A1, "1056"))),
+                new Person("Jacob", 89, 52.6, Gender.MALE, List.of(new Phone(Operator.LIFE, "5238"), new Phone(Operator.LIFE, "1020"))),
+                new Person("Liza", 39, 42.6, Gender.FEMALE, List.of(new Phone(Operator.LIFE, "7281"))),
+                new Person("Darya", 64, 100.6, Gender.FEMALE, List.of(new Phone(Operator.A1, "5801"))),
+                new Person("Ram", 38, 62.6, Gender.MALE, List.of(new Phone(Operator.LIFE, "9021"), new Phone(Operator.LIFE, "9920"), new Phone(Operator.MTS, "9883"))),
+                new Person("Kate", 89, 100.6, Gender.FEMALE, List.of(new Phone(Operator.LIFE, "7681")))
         );
     }
 

@@ -10,11 +10,16 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Task10 implements Task {
+    private final List<Person> persons;
+
+    public Task10(List<Person> persons) {
+        this.persons = persons;
+    }
+
     @Override
     public void run() {
-        List<Person> persons = DataProvider.createPersons();
         System.out.println("\n10.Получние список Person и найдите самого младшего по возрасту.\n");
-         persons.stream()
+        persons.stream()
                 .collect(Collectors.groupingBy(Person::age))
                 .entrySet()
                 .stream()

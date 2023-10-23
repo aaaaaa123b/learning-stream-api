@@ -18,7 +18,7 @@ public class Task2 implements Task {
 
     @Override
     public void run() {
-        System.out.printf("\n2.Получите список Person, отфильтруйте только те, у кого weight > %f, преобразуйте в name и выведите в консоль.\n", minimalWeightExclusive);
+        System.out.printf("\n2.Получите список Person, отфильтруйте только те, у кого weight > %f, преобразуйте в name и выведите в консоль.\n\n", minimalWeightExclusive);
         persons
                 .stream()
                 .filter(person -> person.weight() > minimalWeightExclusive)

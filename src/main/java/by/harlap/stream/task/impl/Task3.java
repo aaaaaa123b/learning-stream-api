@@ -10,14 +10,20 @@ import by.harlap.stream.model.Phone;
 import java.util.List;
 
 public class Task3 implements Task {
+    private final List<Person> persons;
+    private final int phoneNumbersExclusive;
+
+    public Task3(List<Person> persons, int phoneNumbersExclusive) {
+        this.persons = persons;
+        this.phoneNumbersExclusive = phoneNumbersExclusive;
+    }
     @Override
     public void run() {
-        List<Person> persons = DataProvider.createPersons();
-        int numberOfPhones = 1;
-        System.out.printf("\n3.Получите список Person, отфильтруйте только те, у кого кол-во телефонов > %d, преобразуйте в номера телефонов и выведите в консоль.\n", numberOfPhones);
+
+        System.out.printf("\n3.Получите список Person, отфильтруйте только те, у кого кол-во телефонов > %d, преобразуйте в номера телефонов и выведите в консоль.\n\n", phoneNumbersExclusive);
 
         persons.stream()
-                .filter(person -> person.phones().size() > numberOfPhones)
+                .filter(person -> person.phones().size() > phoneNumbersExclusive)
                 .flatMap(person -> person.phones().stream())
                 .map(Phone::number)
                 .collect(CustomListCollector.toList())
