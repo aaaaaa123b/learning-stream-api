@@ -5,7 +5,6 @@ import by.harlap.stream.model.Person;
 import by.harlap.stream.task.Task;
 
 import java.util.List;
-import java.util.Optional;
 
 public class Task7 implements Task {
     private final List<Person> persons;
