@@ -1,9 +1,7 @@
 package by.harlap.stream.task.impl;
 
 import by.harlap.stream.task.Task;
-import by.harlap.stream.util.DataProvider;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.OptionalDouble;
 

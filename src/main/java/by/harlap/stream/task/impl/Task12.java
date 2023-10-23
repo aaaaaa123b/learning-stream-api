@@ -1,9 +1,8 @@
 package by.harlap.stream.task.impl;
 
-import by.harlap.stream.task.Task;
-import by.harlap.stream.util.DataProvider;
 import by.harlap.stream.enumeration.Gender;
 import by.harlap.stream.model.Person;
+import by.harlap.stream.task.Task;
 
 import java.util.List;
 import java.util.Map;

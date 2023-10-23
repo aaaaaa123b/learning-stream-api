@@ -1,8 +1,7 @@
 package by.harlap.stream.task.impl;
 
-import by.harlap.stream.task.Task;
-import by.harlap.stream.util.DataProvider;
 import by.harlap.stream.model.Person;
+import by.harlap.stream.task.Task;
 
 import java.util.Collections;
 import java.util.List;
