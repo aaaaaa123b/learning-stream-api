@@ -1,18 +1,19 @@
 package by.harlap.stream.task.impl;
 
-import by.harlap.stream.collector.CustomListCollector;
+import by.harlap.stream.enumeration.Operator;
 import by.harlap.stream.task.Task;
 import by.harlap.stream.model.Person;
 import by.harlap.stream.model.Phone;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Task8 implements Task {
     private final List<Person> persons;
     private final int personOrder;
 
 
-    public Task8(List<Person> persons,int personOrder) {
+    public Task8(List<Person> persons, int personOrder) {
         this.persons = persons;
         this.personOrder = personOrder;
     }
@@ -23,11 +24,15 @@ public class Task8 implements Task {
 
         persons.stream()
                 .skip(personOrder - 1)
-                .findFirst()
-                .map(person -> person.phones().stream()
-                        .map(Phone::operator)
-                        .distinct()
-                        .collect(CustomListCollector.toList()))
-                .ifPresent(operators -> operators.forEach(System.out::println));
+                .limit(1)
+                .flatMap(this::personOperators)
+                .forEach(System.out::println);
+    }
+
+    private Stream<Operator> personOperators(Person person) {
+        return person.phones()
+                .stream()
+                .map(Phone::operator)
+                .distinct();
     }
 }

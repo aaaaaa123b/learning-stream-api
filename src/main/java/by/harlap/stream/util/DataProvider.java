@@ -8,7 +8,10 @@ import by.harlap.stream.model.Phone;
 import java.time.LocalDate;
 import java.util.*;
 
+
 public class DataProvider {
+    private DataProvider() {
+    }
 
     public static List<Person> createPersons() {
         return Arrays.asList(

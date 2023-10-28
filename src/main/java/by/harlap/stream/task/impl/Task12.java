@@ -18,9 +18,10 @@ public class Task12 implements Task {
     @Override
     public void run() {
         System.out.println("\n12.Получние список Person, сгруппируйте их по полу и результатом группировки должно быть их кол-во.\n");
-        Map<Gender, Long> filtredPersons12 = persons.stream()
+
+        Map<Gender, Long> result = persons.stream()
                 .collect(Collectors.groupingBy(Person::gender, Collectors.counting()));
-        filtredPersons12.forEach((gender, count) -> {
+        result.forEach((gender, count) -> {
             System.out.println("Пол: " + gender);
             System.out.println("Количество: " + count);
         });

@@ -1,11 +1,10 @@
 package by.harlap.stream.task.impl;
 
+import by.harlap.stream.collector.CustomListCollector;
 import by.harlap.stream.model.Person;
 import by.harlap.stream.task.Task;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Task10 implements Task {
@@ -17,14 +16,18 @@ public class Task10 implements Task {
 
     @Override
     public void run() {
-        System.out.println("\n10.Получние список Person и найдите самого младшего по возрасту.\n");
+        System.out.println("\n10.Получение список Person и найдите самого младшего по возрасту.\n");
+
+        int minAge = persons.stream()
+                .mapToInt(Person::age)
+                .min().getAsInt();
+
         persons.stream()
-                .collect(Collectors.groupingBy(Person::age))
-                .entrySet()
-                .stream()
-                .min(Map.Entry.comparingByKey())
-                .map(Map.Entry::getValue)
-                .orElse(Collections.emptyList())
-                .forEach(System.out::println);
+                .filter(person -> person.age() == minAge)
+                .collect(CustomListCollector.toList()).forEach(System.out::println);
+
+//        Optional<Person> result= persons.stream()
+//                .min(Comparator.comparingInt(Person::age));
+//        System.out.println(result.get());
     }
 }

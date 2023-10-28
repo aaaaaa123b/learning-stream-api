@@ -15,9 +15,9 @@ public class Task16 implements Task {
         long number = 1000000;
 
         final int parallelism = 2;
-        ForkJoinPool forkJoinPool = null;
+        ForkJoinPool forkJoinPool = new ForkJoinPool(parallelism);
+        ;
         try {
-            forkJoinPool = new ForkJoinPool(parallelism);
             final Long sum = forkJoinPool.submit(() ->
                     LongStream.generate(() -> ThreadLocalRandom.current().nextLong())
                             .limit(number)
@@ -28,9 +28,7 @@ public class Task16 implements Task {
         } catch (InterruptedException | ExecutionException e) {
             throw new RuntimeException(e);
         } finally {
-            if (forkJoinPool != null) {
-                forkJoinPool.shutdown();
-            }
+            forkJoinPool.shutdown();
         }
     }
 }

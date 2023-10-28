@@ -20,10 +20,12 @@ public class Task5 implements Task {
 
         System.out.println("\n5.Получите список Person и отсортируйте их по возрасту в порядке убывания, если возраст равен, то по именам и выведите в консоль.\n");
 
+        final Comparator<? super Person> personComparator = Comparator.comparing(Person::age)
+                .reversed()
+                .thenComparing(Person::name);
+
         persons.stream()
-                .sorted(Comparator.comparing(Person::age)
-                        .reversed()
-                        .thenComparing(Person::name))
+                .sorted(personComparator)
                 .collect(CustomListCollector.toList())
                 .forEach(System.out::println);
     }

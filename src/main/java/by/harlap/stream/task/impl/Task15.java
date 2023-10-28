@@ -18,7 +18,7 @@ public class Task15 implements Task {
         System.out.println("\n15.Получите список строк, преобразуйте их в числа, и посчитайте среднее значение (не забудьте отфильтровать не валидные строки)\n");
 
         OptionalDouble average = strings.stream()
-                .filter(Task15::isValidNumber)
+                .filter(string -> string.matches("-?\\d+(\\.\\d+)?"))
                 .mapToDouble(Double::parseDouble)
                 .average();
 
@@ -29,15 +29,5 @@ public class Task15 implements Task {
         }
     }
 
-    private static boolean isValidNumber(String s) {
-        try {
-            Double.parseDouble(s);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-
-
-    }
 }
 
